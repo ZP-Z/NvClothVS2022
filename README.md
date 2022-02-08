@@ -11,7 +11,7 @@ Features:
 * Collision detection and response suitable for animated characters
 * Low level interface with little overhead and easy integration
 
-This version is a customized version for buiding in Visual Studio 2022.
+This version is a customized version for building in Visual Studio 2022.
 
 Build
 -------------
