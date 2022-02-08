@@ -1,0 +1,369 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="x-ua-compatible" content="IE=Edge"/>
+    
+    <title>Inter Collision &mdash; NvCloth 1.1.5 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/breathe.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/application.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/styleguide.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '1.1.5',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="../_static/bootstrap.js"></script>
+    <script type="text/javascript" src="../_static/jquery.cookie.js"></script>
+    <script type="text/javascript" src="../_static/jquery.storageapi.js"></script>
+    <link rel="top" title="NvCloth 1.1.5 documentation" href="../index.html" />
+    <link rel="up" title="Internal collision detection documentation" href="Index.html" />
+    <link rel="next" title="Internal cooking documentation" href="../Cooking/Index.html" />
+    <link rel="prev" title="Self Collision" href="SelfCollision.html" /> 
+  </head>
+  <body>
+<nav class="navbar navbar-inverse navbar-default">
+  <div class="row">
+      <div class="navbar-brand">
+             <img class="logo" src="../_static/developerzone_gameworks_logo.png" alt="Logo"/>
+      </div>
+<div id="searchbox" style="display: none; float:right; padding-top:4px; padding-right:4px">
+    <form class="search form-inline" action="../search.html" method="get">
+      <div class="form-group">
+      <input type="text" name="q" class="form-control" />
+      <input type="submit" value="Search" class="btn btn-primary" />
+      </div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+  </div>
+</nav>
+<div class="masthead">
+    <div class="row">
+      <ul class="breadcrumb">
+        <li><a href="../index.html">NvCloth 1.1.5 documentation</a></li>
+          <li><a href="Index.html" accesskey="U">Internal collision detection documentation</a></li> 
+      </ul>
+    </div>
+</div>
+<div class="row">
+  <div class="col-md-3 bs-sidenav" style="white-space: nowrap; overflow: auto;">
+<div class="bs-sidebar">
+  <div id="sidebar_toc">
+  <h4>Table Of Contents</h4>
+  <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../ReleaseNotes/index.html">Release Notes</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../ReleaseNotes/index.html#id1">1.1.5</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ReleaseNotes/index.html#id2">1.1.4</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ReleaseNotes/index.html#id3">1.1.3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ReleaseNotes/index.html#id4">1.1.2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ReleaseNotes/index.html#id5">1.1.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ReleaseNotes/index.html#id6">1.1.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ReleaseNotes/index.html#id7">1.0.0</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../Compiling/index.html">Compiling</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Compiling/index.html#windows">Windows</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Compiling/index.html#linux">Linux</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Compiling/index.html#mac">Mac</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Compiling/index.html#ios">iOS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Compiling/index.html#android">Android</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../Modules/Index.html">Modules</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Modules/Index.html#nvcloth">NvCloth</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Modules/Index.html#nvcloth-extensions">NvCloth extensions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../UserGuide/Index.html">User Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../UserGuide/Index.html#setup">Setup</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../UserGuide/Index.html#initializing-the-library">Initializing the Library</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../UserGuide/Index.html#factory">Factory</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../UserGuide/Index.html#fabric-cloth">Fabric &amp; Cloth</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../UserGuide/Index.html#fabric">Fabric</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../UserGuide/Index.html#cloth">Cloth</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../UserGuide/Index.html#solver">Solver</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../UserGuide/Index.html#retrieving-simulation-data">Retrieving simulation data</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../UserGuide/Index.html#usage">Usage</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../UserGuide/Index.html#common-cloth-properties">Common cloth properties</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../UserGuide/Index.html#tethers">Tethers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../UserGuide/Index.html#collision-detection">Collision detection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../UserGuide/Index.html#local-space-simulation">Local space simulation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../UserGuide/Index.html#drag-lift-and-wind">Drag lift and wind</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../UserGuide/Index.html#distance-motion-constraints">Distance/Motion constraints</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../UserGuide/Index.html#attaching-cloth-to-animated-characters">Attaching cloth to animated characters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../UserGuide/Index.html#unit-scaling">Unit scaling</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../UserGuide/Index.html#troubleshooting">Troubleshooting</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../UserGuide/Index.html#parts-of-cloth-disappearing-for-single-frame">Parts of cloth disappearing (for single frame)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../CopyRight/Index.html">NVIDIA Copyright Notice</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Solver/Index.html">Internal solver function/algorithm documentation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Solver/Index.html#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Solver/Index.html#particle-invmass-w-component">Particle invMass w component</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Solver/Index.html#slack">Slack</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Solver/Index.html#log-stiffness">Log Stiffness</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Solver/Index.html#integration">Integration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Solver/Index.html#wind-simulation">Wind simulation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Solver/Index.html#distance-constraints">Distance constraints</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Solver/Index.html#tether-constraints">Tether constraints</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Solver/Index.html#edge-constraints">Edge constraints</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Solver/Index.html#separation-constraints">Separation constraints</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Solver/Index.html#fabric-data-structure">Fabric data structure</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="Index.html">Internal collision detection documentation</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="Index.html#overview-of-the-different-modules">Overview of the different modules</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="SphereCapsuleCollision.html">Sphere Capsule collision detection</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="SphereCapsuleCollision.html#sphere-capsule-generation">Sphere/ Capsule generation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="SphereCapsuleCollision.html#sphere-acceleration-structure">Sphere acceleration structure</a></li>
+<li class="toctree-l4"><a class="reference internal" href="SphereCapsuleCollision.html#collideparticles">collideParticles()</a></li>
+<li class="toctree-l4"><a class="reference internal" href="SphereCapsuleCollision.html#capsule-collision-detection">Capsule collision detection</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="SphereCapsuleCollision.html#cone-collision-detection">Cone collision detection</a></li>
+<li class="toctree-l5"><a class="reference internal" href="SphereCapsuleCollision.html#sphere-collision-detection">Sphere collision detection</a></li>
+<li class="toctree-l5"><a class="reference internal" href="SphereCapsuleCollision.html#sphere-ccd">Sphere CCD</a></li>
+<li class="toctree-l5"><a class="reference internal" href="SphereCapsuleCollision.html#cone-ccd">Cone CCD</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="SphereCapsuleCollision.html#calculatefrictionimpulse">calculateFrictionImpulse()</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="SelfCollision.html">Self Collision</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="SelfCollision.html#overview">Overview</a></li>
+<li class="toctree-l4"><a class="reference internal" href="SelfCollision.html#acceleration-structure">Acceleration structure</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="SelfCollision.html#grid-setup">Grid setup</a></li>
+<li class="toctree-l5"><a class="reference internal" href="SelfCollision.html#particle-sorting">Particle sorting</a></li>
+<li class="toctree-l5"><a class="reference internal" href="SelfCollision.html#key-range-sweep">Key range sweep</a></li>
+<li class="toctree-l5"><a class="reference internal" href="SelfCollision.html#collision-detection-and-response">Collision detection and response</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l3 current"><a class="current reference internal" href="">Inter Collision</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#overview">Overview</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#broad-phase-collision-detection">Broad phase collision detection</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#acceleration-structure">Acceleration structure</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#id1">Broad phase collision detection</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#differences-with-self-collision">Differences with self collision</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Index.html#todo">Todo</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../Cooking/Index.html">Internal cooking documentation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Cooking/Index.html#overview-of-the-different-modules">Overview of the different modules</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../Cooking/TripletScheduler.html">TripletScheduler</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../Cooking/TripletScheduler.html#adjacencyquerier">AdjacencyQuerier</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Cooking/TripletScheduler.html#id1">TripletScheduler</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Cooking/TripletScheduler.html#tripletscheduler-simd">TripletScheduler::simd()</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Cooking/TripletScheduler.html#tripletscheduler-warp">TripletScheduler::warp()</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="SelfCollision.html"
+                        title="previous chapter">Self Collision</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="../Cooking/Index.html"
+                        title="next chapter">Internal cooking documentation</a></p>
+<div id="searchbox" style="display: none">
+  <h4>Quick search</h4>
+    <form class="search form-inline" action="../search.html" method="get">
+      <div class="form-group">
+      <input type="text" name="q" class="form-control" />
+      <input type="submit" value="Search" class="btn btn-primary" />
+      </div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+</div>
+  </div>
+    <div class="document col-md-8">
+          <div class="body">
+            
+  <div class="section" id="inter-collision">
+<h1>Inter Collision<a class="headerlink" href="#inter-collision" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p>Inter collision tries to keep multiple cloth objects from intersecting, but does not keep any cloth from self intersecting.
+It does this by keeping the particles from every cloth a minimum distance away from the particles of every other cloth.
+This distance can be set using Cloth::setInterCollisionDistance().</p>
+</div>
+<div class="section" id="broad-phase-collision-detection">
+<h2>Broad phase collision detection<a class="headerlink" href="#broad-phase-collision-detection" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="acceleration-structure">
+<h2>Acceleration structure<a class="headerlink" href="#acceleration-structure" title="Permalink to this headline">¶</a></h2>
+<p>The acceleration structures used for Inter Collision are very similar to those used in Self Collision.
+The only addition is the broad phase which is used to cull cloth pairs based their bounding boxes, and cull particles from the narrow phase based on the overlapping volumes.</p>
+<div class="section" id="id1">
+<h3>Broad phase collision detection<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<p><tt class="code docutils literal"><span class="pre">calculatePotentialColliders()</span></tt> takes care of the broad phase.
+It first calculates the individual bounding boxes of each cloth in world space.
+The sweep axis is determined using the bounding box enclosing all cloths.
+The worldspace bounding boxes are sorted by the lower boundary on the sweep axis.
+Sorting this way gives the following properties:</p>
+<div class="highlight-python"><pre>true = clothBounds[sortedIndices[i]].mLower &lt;= clothBounds[sortedIndices[i+1]].mLower
+
+if(clothBounds[sortedIndices[a]].mUpper &lt; clothBounds[sortedIndices[b]].mLower)
+{
+       true = clothBounds[sortedIndices[a]].mUpper &lt; clothBounds[sortedIndices[b+1]].mLower
+       // b and all sorted cloths after b do not intersect a
+}</pre>
+</div>
+<p>Now the clothes are tested against the bounds of every other cloth.</p>
+<p>For cloth A, all overlapping bounds of the other cloths are stored in temporary memory (in <tt class="code docutils literal"><span class="pre">overlapBounds</span></tt>) in the local space of cloth A.
+All the particles of cloth A that overlap with any of those bounds are marked for narrow phase collision (and transformed to world space).
+Marking a particle for narrow phase collision is done by storing it in the <tt class="code docutils literal"><span class="pre">mClothIndices</span></tt> and <tt class="code docutils literal"><span class="pre">mParticleIndices</span></tt> arrays.
+Now the narrow phase only has to deal with the particles in those lists.</p>
+</div>
+<div class="section" id="differences-with-self-collision">
+<h3>Differences with self collision<a class="headerlink" href="#differences-with-self-collision" title="Permalink to this headline">¶</a></h3>
+<p>Some of the obvious differences:</p>
+<blockquote>
+<div><ul class="simple">
+<li>Instead of iterating over all particles only particles from the <tt class="code docutils literal"><span class="pre">mClothIndices</span></tt> and <tt class="code docutils literal"><span class="pre">mParticleIndices</span></tt> arrays are used.</li>
+<li>The particle cannot be directly accessed, the <tt class="code docutils literal"><span class="pre">getParticle()</span></tt> function is used instead.</li>
+<li>Intercollision has no equivalent to self collision indices.</li>
+<li>The particles need to be transformed back into local space after collision response.</li>
+</ul>
+</div></blockquote>
+</div>
+</div>
+</div>
+
+
+          </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="col-md-1"></div>
+</div>
+<div class="masthead">
+    <div class="row">
+      <ul class="breadcrumb">
+        <li><a href="../index.html">NvCloth 1.1.5 documentation</a></li>
+          <li><a href="Index.html" >Internal collision detection documentation</a></li> 
+      </ul>
+    </div>
+</div>
+
+<footer>
+    <div class="footer-boilerplate">
+        <div class="row">
+            <div class="boilerplate">
+                Copyright &copy; 2019, NVIDIA Corporation &nbsp; | &nbsp; <a href="http://www.nvidia.com/object/about-nvidia.html" onclick="s_objectID=&quot;http://www.nvidia.com/object/about-nvidia.html_1&quot;;return this.s_oc?this.s_oc(e):true">About NVIDIA </a>&nbsp; | &nbsp; <a href="http://www.nvidia.com/object/legal_info.html" onclick="s_objectID=&quot;http://www.nvidia.com/object/legal_info.html_1&quot;;return this.s_oc?this.s_oc(e):true">Legal Information </a>&nbsp; | &nbsp; <a href="http://www.nvidia.com/object/privacy_policy.html" onclick="s_objectID=&quot;http://www.nvidia.com/object/privacy_policy.html_1&quot;;return this.s_oc?this.s_oc(e):true">Privacy Policy </a>
+            </div>
+        </div>
+    </div>
+</div>
+</footer>
+
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX", "output/HTML-CSS"],
+    tex2jax: {
+      processEscapes: true,
+      skipTags: ["script","noscript","style","textarea"]
+    },
+    "HTML-CSS": { availableFonts: ["TeX"] },
+    TeX: {
+        Macros: {
+          Lrg: ['\\displaystyle{#1}', 1, ""]
+        }
+      }
+  });
+</script>
+
+
+<script type="text/javascript" async
+  src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+<script>
+var treestatename = 'GWDocsTreeState';
+var protocol = location.href.split('/')[0].toLowerCase();
+var storage;
+if (protocol.substring(0,4) == 'http') {
+  storage = $.cookieStorage;
+  storage.setPath('/');
+} else {
+  storage = $.localStorage;
+}
+
+if (storage.isEmpty(treestatename)) {
+  storage.set(treestatename, {});
+}
+
+var treestate = storage.get(treestatename);
+
+$.each($("#sidebar_toc ul li"), toc_walker);
+
+function toc_walker(key, value) {
+    var handleSpan = $("<span></span>")
+        .addClass("toc_handle").prependTo(value);
+    handleSpan.attr("id", $(value).closest("div").attr("id") + "." + key);
+
+    if($(value).has("ul li").size() > 0) {
+        var id = handleSpan.attr("id");
+        if (!(id in treestate)) {
+          treestate[id] = false;
+        }
+        handleSpan.addClass("toc_expanded").click(function() {
+            $(this).toggleClass("toc_expanded toc_collapsed").siblings("ul").toggle();
+            treestate[$(this).attr('id')] = $(this).hasClass('toc_expanded');
+            storage.set(treestatename, treestate);
+        });
+        if(!($(this).hasClass('current') || treestate[id])) {
+            handleSpan.click();
+        }
+        if($(this).hasClass('current')) {
+            treestate[handleSpan.attr('id')] = handleSpan.hasClass('toc_expanded');
+            storage.set(treestatename, treestate);
+        }
+    }
+}
+</script>
+  </body>
+</html>
