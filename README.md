@@ -11,9 +11,12 @@ Features:
 * Collision detection and response suitable for animated characters
 * Low level interface with little overhead and easy integration
 
+This version is a customized version for buiding in Visual Studio 2022.
+
 Build
 -------------
-install visual studio 2022 and CUDA 11.6+ (or other version that supports vs2022)
+- install visual studio 2022 
+- TODO: enable CUDA (something wrong with CUDA building...)
 ```
 ./NvCloth/samples/CmakeGenerateProjects.bat
 ```
