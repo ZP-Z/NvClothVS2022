@@ -14,7 +14,7 @@ REM )
 REM set CMAKE=%PM_cmake_PATH%/bin/cmake.exe
 
 
-set USE_CUDA=0
+set USE_CUDA=1
 set USE_DX11=1
 IF %1. NEQ . (set USE_CUDA=%1)
 IF %2. NEQ . (set USE_DX11=%2)

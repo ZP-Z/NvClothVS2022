@@ -16,8 +16,8 @@ This version is a customized version for building in Visual Studio 2022.
 Build
 -------------
 - install visual studio 2022 
-- TODO: enable CUDA (something wrong with CUDA building...)
-```
+- install CUDA 11.6 (or other version, you should modify the CUDA version in ./NvCloth/scripts/locate_cuda.bat)
+`
 ./NvCloth/samples/CmakeGenerateProjects.bat
 ```
 check visual studio project in NvCloth/samples/compiler/vc17win64-cmake folder
