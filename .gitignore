@@ -11,3 +11,5 @@ CTestTestfile.cmake
 
 NvCloth/samples/bin/*
 NvCloth/samples/compiler/vc17win64-cmake
+*.exp
+*.lib

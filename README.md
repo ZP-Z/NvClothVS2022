@@ -17,6 +17,7 @@ Build
 -------------
 - install visual studio 2022 
 - TODO: enable CUDA (something wrong with CUDA building...)
+
 ```
 ./NvCloth/samples/CmakeGenerateProjects.bat
 ```
