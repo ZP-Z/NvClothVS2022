@@ -17,10 +17,12 @@ Build
 -------------
 - install visual studio 2022 
 - install CUDA 11.6 (or other version, you should modify the CUDA version in ./NvCloth/scripts/locate_cuda.bat)
+- run the following script
 ```
 ./NvCloth/samples/CmakeGenerateProjects.bat
 ```
-check visual studio project in NvCloth/samples/compiler/vc17win64-cmake folder
+- check visual studio project in NvCloth/samples/compiler/vc17win64-cmake folder
+- build in Visual Studio 2022, set `SampleBase` as StartUp project, debug
 
 Documentation
 -------------
