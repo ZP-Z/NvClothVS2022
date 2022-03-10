@@ -10,7 +10,7 @@ compile_commands.json
 CTestTestfile.cmake
 
 NvCloth/src/cuda/CuSolverKernelBlob.h
-NvCloth/src/dx/DxSolverKernelBlob.h
+# NvCloth/src/dx/DxSolverKernelBlob.h
 NvCloth/samples/bin/*
 NvCloth/samples/lib/*
 NvCloth/samples/compiler/vc17win64-cmake
