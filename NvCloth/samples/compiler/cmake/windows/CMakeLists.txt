@@ -3,6 +3,8 @@
 MESSAGE("Windows/CMakeLists.txt [begin]")
 SET(GW_DEPS_ROOT $ENV{GW_DEPS_ROOT})
 
+MESSAGE("Sample print: environment root is ${GW_DEPS_ROOT}")
+
 SET(CMAKE_MODULE_PATH $ENV{GW_DEPS_ROOT}NvCloth/Externals/CMakeModules)
 
 # Add find modules to the path

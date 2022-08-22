@@ -1,18 +1,8 @@
-rem @echo off
-
-CD /D %~dp0
 @echo off
 
+%1 mshta vbscript:CreateObject("Shell.Application").ShellExecute("cmd.exe","/c %~s0 ::","","runas",1)(window.close)&&exit
 
-REM Install cmake using packman
-REM set PACKMAN=call ../scripts/packman/packman.cmd
-REM %PACKMAN% pull -p windows "../scripts/packman/packages/cmake.packman.xml"
-REM IF %ERRORLEVEL% NEQ 0 (
-REM     set EXIT_CODE=%ERRORLEVEL%
-REM     goto End
-REM )
-REM set CMAKE=%PM_cmake_PATH%/bin/cmake.exe
-
+CD /D %~dp0
 
 set USE_CUDA=1
 set USE_DX11=1
@@ -23,14 +13,12 @@ set CMAKE=cmake
 
 REM Make sure the various variables that we need are set
 
+setx GW_DEPS_ROOT %~dp0../../
+set GW_DEPS_ROOT=%~dp0../../
+echo GW_DEPS_ROOT = %GW_DEPS_ROOT%
+
 call "../scripts/locate_cuda.bat" CUDA_PATH_
 echo CUDA_PATH_ = %CUDA_PATH_%
-
-
-set GW_DEPS_ROOT=%~dp0..\..\
-
-
-IF NOT DEFINED GW_DEPS_ROOT GOTO GW_DEPS_ROOT_UNDEFINED
 
 set PX_OUTPUT_ROOT=%~dp0
 
