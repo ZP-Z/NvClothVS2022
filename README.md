@@ -13,8 +13,8 @@ Features:
 
 This version is a customized version for building in Visual Studio 2022.
 
-Build
--------------
+Custom build with Visual Studio 2022
+============
 - install visual studio 2022 
 - install CUDA 11.6 (or other version, you should modify the CUDA version in ./NvCloth/scripts/locate_cuda.bat)
 - run the following script
