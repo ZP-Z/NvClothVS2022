@@ -1,22 +1,9 @@
-NvCloth 1.1.6
-===========
+NvCloth 1.1.6 from [NVIDIAGameWorks/NvCloth](https://github.com/NVIDIAGameWorks/NvCloth)
 
-Introduction
-------------
-
-NvCloth is a library that provides low level access to a cloth solver designed for realtime interactive applications.
-
-Features:
-* Fast and robust cloth simulation suitable for games
-* Collision detection and response suitable for animated characters
-* Low level interface with little overhead and easy integration
-
-This version is a customized version for building in Visual Studio 2022.
-
-Custom build with Visual Studio 2022
+Building with Visual Studio 2022
 ------------
 - install visual studio 2022 
-- install CUDA 11.6 (or other version, you should modify the CUDA version in ./NvCloth/scripts/locate_cuda.bat)
+- install CUDA 12.8 (or other version, you should modify the CUDA version in ./NvCloth/scripts/locate_cuda.bat)
 - run the following script
 ```
 ./NvCloth/samples/CmakeGenerateProjects.bat
@@ -24,14 +11,8 @@ Custom build with Visual Studio 2022
 - check visual studio project in NvCloth/samples/compiler/vc17win64-cmake folder
 - build in Visual Studio 2022, set `SampleBase` as StartUp project, debug
 
-Documentation
--------------
+Note
+---------------
+1. CUDA version compatibility​: like `nvcc fatal: Unsupported GPU architecture`, verify the compute capability flags in `*.cmake` files. Locate `-gencode arch` entries and adjust them based on your CUDA version's supported architectures. For instance, CUDA 12.8 supports architectures `compute_70` to `compute_90`.
 
-See ./NvCloth/ReleaseNotes.txt for changes and platform support.
-See ./NvCloth/docs/documentation/index.html for the release notes, API users guide and compiling instructions.
-See ./NvCloth/docs/doxy/index.html for the api documentation.
-
-PhysX / PxShared compatibility
------------------------------------
-Note that 1.1.6 is compatible with the same version of PxShared shipped with PhysX 4.0.
-Please use 1.1.5 if you are compiling it together with PhysX 3.4.
+2. CUDA warnings would being treated as errors during compiling, add `/wdxxxx` flag to `CMAKE_CXX_FLAGS`
