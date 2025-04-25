@@ -6,8 +6,6 @@ CD /D %~dp0
 
 set USE_CUDA=1
 set USE_DX11=1
-IF %1. NEQ . (set USE_CUDA=%1)
-IF %2. NEQ . (set USE_DX11=%2)
 
 set CMAKE=cmake
 

@@ -27,7 +27,7 @@ ENDIF()
 MESSAGE( "[samples]windows/CMakeLists.txt CMAKE_MODULE_PATH = ${CMAKE_MODULE_PATH}")
 
 #NOTE: Warnings lowered on the sample projects as it's got a lot of warnings. Defines below hide more.
-SET(CMAKE_CXX_FLAGS "/GR- /GF /MP /Gy /EHsc /d2Zi+ /errorReport:prompt /fp:fast /Gd /Gm- /GS- /nologo /W3 /WX /Zc:forScope /Zc:inline /Zc:wchar_t /Zi")
+SET(CMAKE_CXX_FLAGS "/Wall /wd4819 /GR- /GF /MP /Gy /EHsc /d2Zi+ /errorReport:prompt /fp:fast /Gd /Gm- /GS- /nologo /W3 /WX /Zc:forScope /Zc:inline /Zc:wchar_t /Zi")
 
 # Are we using the static or dynamic RT library? Whatever we use, it needs to be the same in any dependencies
 #  we pull in or we're potentially having mismatch issues.

@@ -2,7 +2,7 @@
 setlocal enabledelayedexpansion
 
 rem use the following 2 lines to manually point to the google test folder \\sw\%FOLDER_NEEDLE%
-set FOLDER=C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v11.6
+set FOLDER=C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.8
 goto :manualfolder
 
 set FOLDER_NEEDLE=physx\externals\CUDA\8.0.44
